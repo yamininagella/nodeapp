@@ -14,8 +14,9 @@ pipeline {
                 // Install Node.js dependencies using npm
                 sh """
                    node -v
+                   rm package-lock.json
                    npm config fix
-                   npm cache clean –force
+                //    npm cache clean –force
                    npm install
                    npm cache verify
              """
