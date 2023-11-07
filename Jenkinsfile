@@ -39,16 +39,18 @@ pipeline {
             }
         }
     }
-
     post {
         always {
             // Clean up or perform some actions after the pipeline runs
-        }
+                echo "always run"
+        }       
         success {
             // Actions to perform on a successful build
+                echo "always success"
         }
         failure {
             // Actions to perform on a failed build
+                echo "never fails"
         }
     }
 }
