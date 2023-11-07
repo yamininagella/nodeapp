@@ -15,6 +15,7 @@ pipeline {
                 sh """
                    node -v
                    npm config fix
+                   npm cache clean –force
                    npm install
                    npm cache verify
              """
