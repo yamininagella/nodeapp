@@ -12,14 +12,22 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install Node.js dependencies using npm
-                sh 'npm install'
+                sh """
+                   node -v
+                   npm config fix
+                   npm install
+                   npm cache verify
+             """
             }
         }
 
         stage('Run Tests') {
             steps {
                 // Run tests for your Node.js application
-                sh 'npm test'
+                sh """
+                npm config fix
+                npm test
+             """
             }
         }
 
@@ -27,7 +35,10 @@ pipeline {
             steps {
                 // Build your Node.js application, if needed
                 // For example, using webpack or similar tools
-                sh 'npm run build'
+                sh """
+                npm config fix
+                npm run build
+             """
             }
         }
 
@@ -35,7 +46,10 @@ pipeline {
             steps {
                 // This step is an example of deploying your Node.js application
                 // It could be copying files to a server, deploying to a cloud platform, etc.
-                sh 'npm run deploy'
+                sh """
+                npm config fix
+                npm run deploy
+             """
             }
         }
     }
